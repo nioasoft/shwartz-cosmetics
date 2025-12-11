@@ -1,65 +1,131 @@
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import Image from "next/image";
+import Link from 'next/link';
+import ProductCard from "@/components/ProductCard";
 
 export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    return (
+        <div className="min-h-screen flex flex-col font-sans">
+            <Header />
+
+            <main className="flex-grow">
+                {/* Hero Section */}
+                <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+                    <div className="absolute inset-0 z-0">
+                        <Image
+                            src="/images/hero-cosmetics.png"
+                            alt="Schwartz Cosmetics Luxury Makeup"
+                            fill
+                            className="object-cover"
+                            priority
+                        />
+                        <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
+                    </div>
+
+                    <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto mt-20">
+                        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight leading-tight drop-shadow-lg">
+                            SCHWARTZ <span className="text-primary block md:inline">COSMETICS</span>
+                        </h1>
+                        <p className="text-xl md:text-2xl mb-12 font-light text-gray-100 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+                            יוקרה ואיכות מבית המלח והטבע. חווית טיפוח שתשנה את עולמך לקורנת יותר.
+                        </p>
+                        <div className="flex flex-col md:flex-row gap-4 justify-center">
+                            <a href="#products" className="inline-block bg-primary hover:bg-white hover:text-primary text-secondary font-bold py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg border-2 border-primary hover:border-white">
+                                לקולקציה שלנו
+                            </a>
+                            <a href="#contact" className="inline-block bg-transparent hover:bg-white/10 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 border-2 border-white hover:border-primary">
+                                צור קשר
+                            </a>
+                        </div>
+
+                    </div>
+                </section>
+
+                {/* About Section */}
+                <section id="about" className="py-32 bg-background relative overflow-hidden">
+                    {/* Decorative background element */}
+                    <div className="absolute top-0 right-0 w-1/3 h-full bg-muted/30 -z-10 skew-x-12 transform origin-top" />
+
+                    <div className="container mx-auto px-6">
+                        <div className="flex flex-col md:flex-row items-center gap-16">
+                            <div className="md:w-1/2 relative">
+                                <div className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl">
+                                    <Image
+                                        src="/images/dead-sea-product-1.png"
+                                        alt="Dead Sea Mud Product"
+                                        fill
+                                        className="object-cover hover:scale-105 transition-transform duration-700"
+                                    />
+                                </div>
+                                <div className="absolute -bottom-12 -left-12 w-64 h-64 border-8 border-white rounded-2xl overflow-hidden shadow-2xl hidden md:block">
+                                    <Image
+                                        src="/images/dead-sea-product-2.png"
+                                        alt="Luxury Cream Texture"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="md:w-1/2 text-center md:text-right">
+                                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary drop-shadow-sm">הסיפור שלנו</h2>
+                                <h3 className="text-2xl md:text-3xl font-light mb-8 text-foreground tracking-wide">טבע, מדע ויופי נפגשים</h3>
+                                <p className="text-gray-600 mb-6 leading-relaxed text-lg">
+                                    שוורץ קוסמטיקה נולדה מתוך אהבה לטבע ולים המלח המופלא. אנו מאמינים כי הסוד לעור בריא וזוהר נמצא במשאבי הטבע העשירים ביותר.
+                                </p>
+                                <p className="text-gray-600 mb-10 leading-relaxed text-lg">
+                                    המוצרים שלנו משלבים בוץ ומינרלים מים המלח עם טכנולוגיות טיפוח מתקדמות וקוסמטיקה דקורטיבית איכותית. כל מוצר מיוצר בקפידה כדי להעניק לך חווית טיפוח יוקרתית שטרם הכרת.
+                                </p>
+                                <div className="flex justify-center md:justify-start items-center gap-4">
+                                    <div className="h-1 w-24 bg-primary rounded-full shadow-sm" />
+                                    <span className="text-primary font-bold tracking-widest text-sm uppercase">Schwartz Quality</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Products Section */}
+                <section id="products" className="py-32 bg-muted relative">
+                    <div className="container mx-auto px-6">
+                        <div className="text-center mb-20">
+                            <h2 className="text-4xl font-bold mb-4 text-secondary">הקולקציה שלנו</h2>
+                            <p className="text-gray-500 max-w-2xl mx-auto">מגוון מוצרים ייחודי המשלב את סגולות המרפא של ים המלח עם המגמות החמות עולם האיפור</p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                            <ProductCard
+                                imageSrc="/images/dead-sea-product-1.png"
+                                title="בוץ מינרלי טהור"
+                                description="בוץ שחור טבעי מים המלח, עשיר במינרלים חיוניים לניקוי עמוק והזנת העור."
+                            />
+                            <ProductCard
+                                imageSrc="/images/dead-sea-product-2.png"
+                                title="קרם פנים רויאל"
+                                description="קרם לחות עשיר במרקם קטיפתי, המשלב זהב 24K ומינרלים למיצוק והזוהר."
+                            />
+                            <ProductCard
+                                imageSrc="/images/makeup-1.png"
+                                title="פלטת איפור מקצועית"
+                                description="גוונים עשירים בפיגמנט ועמידים לאורך זמן, למראה זוהר ובלתי נשכח."
+                            />
+                            <ProductCard
+                                imageSrc="/images/makeup-2.png"
+                                title="שפתון ולווט"
+                                description="שפתון במרקם מט יוקרתי, המעניק צבע עז ולחות לשפתיים לאורך כל היום."
+                            />
+                        </div>
+
+                        <div className="text-center mt-16">
+                            <a href="#contact" className="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold py-3 px-8 rounded-full transition-all duration-300">
+                                לכל המוצרים
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <Footer />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+    );
 }
