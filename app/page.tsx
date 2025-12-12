@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from 'next/link';
 import ProductCard from "@/components/ProductCard";
+import { products } from "@/lib/products";
 
 export default function Home() {
     return (
@@ -95,32 +96,21 @@ export default function Home() {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                            <ProductCard
-                                imageSrc="/images/dead-sea-product-1.png"
-                                title="בוץ מינרלי טהור"
-                                description="בוץ שחור טבעי מים המלח, עשיר במינרלים חיוניים לניקוי עמוק והזנת העור."
-                            />
-                            <ProductCard
-                                imageSrc="/images/dead-sea-product-2.png"
-                                title="קרם פנים רויאל"
-                                description="קרם לחות עשיר במרקם קטיפתי, המשלב זהב 24K ומינרלים למיצוק והזוהר."
-                            />
-                            <ProductCard
-                                imageSrc="/images/makeup-1.png"
-                                title="פלטת איפור מקצועית"
-                                description="גוונים עשירים בפיגמנט ועמידים לאורך זמן, למראה זוהר ובלתי נשכח."
-                            />
-                            <ProductCard
-                                imageSrc="/images/makeup-2.png"
-                                title="שפתון ולווט"
-                                description="שפתון במרקם מט יוקרתי, המעניק צבע עז ולחות לשפתיים לאורך כל היום."
-                            />
+                            {products.map((product) => (
+                                <ProductCard
+                                    key={product.id}
+                                    imageSrc={product.imageSrc}
+                                    title={product.title}
+                                    description={product.description}
+                                    slug={product.slug}
+                                />
+                            ))}
                         </div>
 
                         <div className="text-center mt-16">
-                            <a href="#contact" className="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold py-3 px-8 rounded-full transition-all duration-300">
+                            <Link href="/products" className="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold py-3 px-8 rounded-full transition-all duration-300">
                                 לכל המוצרים
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </section>

@@ -1,12 +1,14 @@
+import Link from 'next/link';
 import Image from 'next/image';
 
 interface ProductCardProps {
     imageSrc: string;
     title: string;
     description: string;
+    slug: string;
 }
 
-export default function ProductCard({ imageSrc, title, description }: ProductCardProps) {
+export default function ProductCard({ imageSrc, title, description, slug }: ProductCardProps) {
     return (
         <div className="bg-white rounded-xl overflow-hidden shadow-lg group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
             <div className="relative h-80 overflow-hidden">
@@ -24,9 +26,9 @@ export default function ProductCard({ imageSrc, title, description }: ProductCar
                 </div>
                 <h3 className="text-2xl font-bold mb-3 text-secondary mt-4">{title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed mb-6">{description}</p>
-                <button className="text-primary font-bold text-sm uppercase tracking-widest hover:text-accent transition-colors">
+                <Link href={`/products/${slug}`} className="inline-block text-primary font-bold text-sm uppercase tracking-widest hover:text-accent transition-colors">
                     גלה עוד
-                </button>
+                </Link>
             </div>
         </div>
     );
