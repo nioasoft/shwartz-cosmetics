@@ -10,6 +10,9 @@ const heebo = Heebo({
 export const metadata: Metadata = {
   title: "Schwartz Cosmetics | שוורץ קוסמטיקה",
   description: "Dead Sea Products & Luxurious Cosmetics | מוצרי ים המלח וקוסמטיקה איכותית",
+  icons: {
+    icon: '/icon.png',
+  },
 };
 
 export default function RootLayout({
